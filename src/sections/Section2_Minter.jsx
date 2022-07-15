@@ -52,7 +52,6 @@ function Section2_Minter() {
             yellow
             center
         >
-            <Web3ReactProvider getLibrary={getLibrary}>
                 <div>
                     { active ? (
                         <div>
@@ -80,9 +79,15 @@ function Section2_Minter() {
                         </div>
                     ) }
                 </div>
-            </Web3ReactProvider>
         </Section>
     );
 }
 
-export default Section2_Minter;
+export default function () {
+  return (
+    <Web3ReactProvider getLibrary={getLibrary}>
+    	<Section2_Minter />
+    </Web3ReactProvider>
+  );
+
+}
