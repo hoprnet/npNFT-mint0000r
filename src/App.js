@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import { useWeb3React, Web3ReactHooks, Web3ReactProvider } from '@web3-react/core'
+import { providers, Web3Provider } from 'ethers'
+import { InjectedConnector } from '@web3-react/injected-connector'
+
+function getLibrary(provider, connector) {
+  return new providers.Web3Provider(provider)
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+  const { active, activate, deactivate, account, library, connector, error } = useWeb3React()
+
+  const injected = new InjectedConnector(
+    {
+      supportedChainIds:[1, 100]
+    }
+  )
+
+  const connectWallet = async () => {
+    try {
+      await activate(injected)
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  const disconnectWallet = async () => {
+    try {
+      deactivate(injected)
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+	return (
+		<div>
+    { active ? ( 
+    	<div>
+    	<span>Connected with <b> { account } </b></span> 
+    <button onClick={disconnectWallet}>Disconnect Wallet</button>
+    	</div>
+    ) : (
+    	<div>
+    	<span>Not Connected</span>
+    <button onClick={connectWallet}>Connect Wallet</button>
+    	</div>
+    ) }
     </div>
   );
 }
 
-export default App;
+export default function () {
+  return (
+    <Web3ReactProvider getLibrary={getLibrary}>
+    <App />
+    </Web3ReactProvider>
+  );
+}
