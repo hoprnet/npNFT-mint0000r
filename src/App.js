@@ -1,58 +1,25 @@
-import { useWeb3React, Web3ReactHooks, Web3ReactProvider } from '@web3-react/core'
-import { providers, Web3Provider } from 'ethers'
-import { InjectedConnector } from '@web3-react/injected-connector'
+import React from "react";
+import Layout from './future-hopr-lib-components/Layout'
 
-function getLibrary(provider, connector) {
-  return new providers.Web3Provider(provider)
-}
+import typingBotAnimation from './assets/typing-bot-animation.json';
 
-function App() {
+// Sections
+import Section1_Hero from './sections/Section1_Hero'
+import Section2_Minter from './sections/Section2_Minter'
+import Section3_Content from './sections/Section3_Content'
+import EncourageSection from "./future-hopr-lib-components/EncourageSection";
 
-  const { active, activate, deactivate, account, library, connector, error } = useWeb3React()
-
-  const injected = new InjectedConnector(
-    {
-      supportedChainIds:[1, 100]
-    }
-  )
-
-  const connectWallet = async () => {
-    try {
-      await activate(injected)
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
-  const disconnectWallet = async () => {
-    try {
-      deactivate(injected)
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
+export default function App() {
 	return (
-		<div>
-    { active ? ( 
-    	<div>
-    	<span>Connected with <b> { account } </b></span> 
-    <button onClick={disconnectWallet}>Disconnect Wallet</button>
-    	</div>
-    ) : (
-    	<div>
-    	<span>Not Connected</span>
-    <button onClick={connectWallet}>Connect Wallet</button>
-    	</div>
-    ) }
-    </div>
-  );
-}
-
-export default function () {
-  return (
-    <Web3ReactProvider getLibrary={getLibrary}>
-    <App />
-    </Web3ReactProvider>
-  );
+        <Layout>
+            <Section1_Hero/>
+            <Section2_Minter/>
+            <Section3_Content/>
+            <EncourageSection
+                title='BE PART OF THE HOPR ECOSYSTEM'
+                text='HOPR is building the transport layer privacy needed to make web3 work. Work with us to build dApps that change data privacy for good.'
+                animationData={typingBotAnimation}
+            />
+        </Layout>
+    );
 }
