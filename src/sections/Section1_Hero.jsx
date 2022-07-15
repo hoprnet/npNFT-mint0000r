@@ -65,11 +65,11 @@ function Section1(props) {
             </ImageContainer>
 
             <Typography type="h2" center>
-                non-private NFT Minter
+                Non-Private NFT Minter
             </Typography>
 
             <Subtext center>
-                Text about minter
+                NFTs are funny JPGs, right? But what if your NFT is watching YOU?! This educational project by HOPR makes the metadata visible that typically centralized webservers collect when your wallet loads your NFT.
             </Subtext>
 
             {/*<Button*/}

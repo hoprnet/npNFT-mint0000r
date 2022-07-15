@@ -46,6 +46,10 @@ function Section2_Minter() {
         }
     }
 
+  	const mintNpNFT = async () => {
+  		console.log("minting not implemented yet")
+  	}
+
     return (
         <Section
             id={'Section2'}
@@ -55,21 +59,28 @@ function Section2_Minter() {
                 <div>
                     { active ? (
                         <div>
-                            <Typography type="h5">
-                                Connected with <b> { account } </b>
-                            </Typography>
+                            <Subtext center>
+                                Connected address <b> { account } </b>
+                            </Subtext>
                             <Button
                                 hopr
-                                onClick={disconnectWallet}
+                                onClick={mintNpNFT}
                             >
-                                Disconnect Wallet
+                                Mint Non-Private NFT
                             </Button>
                         </div>
                     ) : (
                         <div>
-                            <Typography type="h5">
-                                Not Connected
-                            </Typography>
+                            <Subtext center>
+                                No wallet connected.
+                      <br />
+                      <br />
+                      We recommend that you open this page in your <a href="https://coinbase-wallet.onelink.me/q5Sx/fdb9b250" target="_blank">Coinbase Mobile Wallet</a> to mint your NFT.
+                      <br />
+                      <br />
+
+                      Why Coinbase Mobile Wallet? Because it is a good example of a wallet that supports NFTs and leaks your metadata for you to see in this educational example NFT.
+                            </Subtext>
                             <Button
                                 hopr
                                 onClick={connectWallet}
