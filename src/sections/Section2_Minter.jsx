@@ -20,6 +20,12 @@ const Subtext = styled(Typography)`
   max-width: 960px;
 `
 
+const MinterContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
 function Section2_Minter() {
 
     const { active, activate, deactivate, account, library, connector, error } = useWeb3React()
@@ -56,40 +62,39 @@ function Section2_Minter() {
             yellow
             center
         >
-                <div>
-                    { active ? (
-                        <div>
-                            <Subtext center>
-                                Connected address <b> { account } </b>
-                            </Subtext>
-                            <Button
-                                hopr
-                                onClick={mintNpNFT}
-                            >
-                                Mint Non-Private NFT
-                            </Button>
-                        </div>
-                    ) : (
-                        <div>
-                            <Subtext center>
-                                No wallet connected.
-                      <br />
-                      <br />
-                      We recommend that you open this page in your <a href="https://coinbase-wallet.onelink.me/q5Sx/fdb9b250" target="_blank">Coinbase Mobile Wallet</a> to mint your NFT.
-                      <br />
-                      <br />
-
-                      Why Coinbase Mobile Wallet? Because it is a good example of a wallet that supports NFTs and leaks your metadata for you to see in this educational example NFT.
-                            </Subtext>
-                            <Button
-                                hopr
-                                onClick={connectWallet}
-                            >
-                                Connect Wallet
-                            </Button>
-                        </div>
-                    ) }
-                </div>
+            <MinterContainer>
+                { active ? (
+                    <>
+                        <Subtext center>
+                            Connected address <b> { account } </b>
+                        </Subtext>
+                        <Button
+                            hopr
+                            onClick={mintNpNFT}
+                        >
+                            Mint Non-Private NFT
+                        </Button>
+                    </>
+                ) : (
+                    <>
+                        <Subtext center>
+                            No wallet connected.
+                        </Subtext>
+                        <Subtext center>
+                            We recommend that you open this page in your <a href="https://coinbase-wallet.onelink.me/q5Sx/fdb9b250" target="_blank">Coinbase Mobile Wallet</a> to mint your NFT.
+                        </Subtext>
+                        <Subtext center>
+                            Why Coinbase Mobile Wallet? Because it is a good example of a wallet that supports NFTs and leaks your metadata for you to see in this educational example NFT.
+                        </Subtext>
+                        <Button
+                            hopr
+                            onClick={connectWallet}
+                        >
+                            Connect Wallet
+                        </Button>
+                    </>
+                ) }
+            </MinterContainer>
         </Section>
     );
 }
