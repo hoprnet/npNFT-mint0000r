@@ -4,6 +4,7 @@ import Section from '../future-hopr-lib-components/Section/index.jsx'
 import Typography from '../future-hopr-lib-components/Typography/index.jsx'
 import Brick from '../future-hopr-lib-components/Brick/index.jsx'
 import Button from '../future-hopr-lib-components/Button/index.jsx'
+import Web3 from 'web3';
 
 // Web3 Imports
 import { useWeb3React, Web3ReactHooks, Web3ReactProvider } from '@web3-react/core'
@@ -53,6 +54,21 @@ function Section2_Minter() {
     }
 
   	const mintNpNFT = async () => {
+  		let minterABI = [
+				{
+				  "inputs": [],
+				  "name": "mintNft",
+				  "outputs": [],
+				  "stateMutability": "nonpayable",
+				  "type": "function"
+				}
+			]
+			let minterAddress="0xFA1B9250465939452D34fad1C8a15148DD136904"
+			console.log(library)
+			let web3 = new Web3(library.provider)
+  		let minterInstance = new web3.eth.Contract(minterABI, minterAddress)
+  		console.log(minterInstance)
+  		minterInstance.methods.mintNft().send( { from: account } )
   		console.log("minting not implemented yet")
   	}
 
