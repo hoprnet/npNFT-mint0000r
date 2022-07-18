@@ -27,6 +27,11 @@ const MinterContainer = styled.div`
     align-items: center;
 `
 
+const Address = styled.b`
+  overflow-wrap: anywhere;
+`
+
+
 function Section2_Minter() {
 
     const { active, activate, deactivate, account, library, connector, error } = useWeb3React()
@@ -82,7 +87,7 @@ function Section2_Minter() {
                 { active ? (
                     <>
                         <Subtext center>
-                            Connected address <b> { account } </b>
+                            Connected address <Address> { account } </Address>
                         </Subtext>
                         <Button
                             hopr

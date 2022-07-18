@@ -4,6 +4,7 @@ import Layout from './future-hopr-lib-components/Layout'
 import typingBotAnimation from './assets/typing-bot-animation.json';
 
 // Sections
+import Banner from './future-hopr-lib-components/Banner'
 import Section1_Hero from './sections/Section1_Hero'
 import Section2_Minter from './sections/Section2_Minter'
 import EncourageSection from "./future-hopr-lib-components/EncourageSection";
@@ -11,6 +12,9 @@ import EncourageSection from "./future-hopr-lib-components/EncourageSection";
 export default function App() {
 	return (
         <Layout>
+            <Banner
+                text='EthCC contest will end on Wednesday, July 20th, 11:59 pm CEST'
+            />
             <Section1_Hero/>
             <Section2_Minter/>
             <EncourageSection

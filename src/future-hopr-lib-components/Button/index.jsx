@@ -11,20 +11,16 @@ const SButton = styled(MuiButton)`
     background: linear-gradient(#000050, #0000b4);
     border-radius: 20px;
     text-transform: none;
-    
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
-    line-height: 45px;
-    
     letter-spacing: 0.25px;
     color: #FFFFFF;
-    
-    height: 38px;
   }
-  &.btn-hopr--v2:not(.btn-hopr--image-only) {
-    width: 100%;
-    max-width: 222px;
+  @media (max-width: 330px) {
+    &.btn-hopr--v2 {
+      font-size: 14px;
+    }
   }
   &.btn-hopr--size70 {
     min-height: 70px;
