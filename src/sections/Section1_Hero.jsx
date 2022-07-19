@@ -17,9 +17,14 @@ const SSection = styled(Section)`
 const ImageContainer = styled.div`
   max-width: 780px;
   width: 100%;
+  min-height: 100px;
   position: relative;
   display: flex;
   justify-content: center;
+`
+
+const SHoprBall = styled(HoprBall)`
+  width: 100%;
 `
 
 // const Animation = styled.div`
@@ -65,7 +70,7 @@ function Section1(props) {
             center
         >
             <ImageContainer >
-                <HoprBall/>
+                <SHoprBall/>
                 <Image
                     alt="Hopr Minter"
                     src={'/images/HOPR_Mint.svg'}
