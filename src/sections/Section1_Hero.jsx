@@ -18,16 +18,25 @@ const ImageContainer = styled.div`
   max-width: 780px;
   width: 100%;
   position: relative;
+  display: flex;
+  justify-content: center;
 `
 
-const Animation = styled.div`
+// const Animation = styled.div`
+//   max-width: 400px;
+//   max-height: 400px;
+//   width: 50%;
+//   position: absolute;
+//   bottom: 0;
+//   right: 0;
+//   overflow: hidden;
+// `
+
+const Image = styled.img`
   max-width: 400px;
-  max-height: 400px;
-  width: 50%;
+  max-height: 90%;
   position: absolute;
-  bottom: 0;
-  right: 0;
-  overflow: hidden;
+  top: 10px;
 `
 
 const Subtext = styled(Typography)`
@@ -36,18 +45,18 @@ const Subtext = styled(Typography)`
 
 function Section1(props) {
 
-    let animationLoaded = false;
-    useEffect(() => {
-        // check to prevent double animation load on page remount
-        if (!animationLoaded) {
-            lottie.loadAnimation({
-                container: document.querySelector(`#derp-animation`),
-                animationData: derpAnimation,
-            });
-        }
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-        animationLoaded = true;
-    }, []);
+    // let animationLoaded = false;
+    // useEffect(() => {
+    //     // check to prevent double animation load on page remount
+    //     if (!animationLoaded) {
+    //         lottie.loadAnimation({
+    //             container: document.querySelector(`#derp-animation`),
+    //             animationData: derpAnimation,
+    //         });
+    //     }
+    //     //eslint-disable-next-line react-hooks/exhaustive-deps
+    //     animationLoaded = true;
+    // }, []);
 
     return (
         <SSection
@@ -57,11 +66,11 @@ function Section1(props) {
         >
             <ImageContainer >
                 <HoprBall/>
-                {/*<Image*/}
-                {/*    alt="Hopr logo"*/}
-                {/*    src={'/images/derp_top-header.png'}*/}
-                {/*/>*/}
-                <Animation id='derp-animation' />
+                <Image
+                    alt="Hopr Minter"
+                    src={'/images/HOPR_Mint.svg'}
+                />
+                {/*<Animation id='derp-animation' />*/}
             </ImageContainer>
 
             <Typography type="h2" center>
