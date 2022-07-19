@@ -92,6 +92,10 @@ const PlainText = styled.div`
     margin-bottom: 80px;
   }
 
+  &.mb0 {
+    margin-bottom: 0;
+  }
+
   &.typography--white{
     color: white;
   }

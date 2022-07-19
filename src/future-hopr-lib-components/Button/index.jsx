@@ -17,6 +17,10 @@ const SButton = styled(MuiButton)`
     letter-spacing: 0.25px;
     color: #FFFFFF;
   }
+  &.btn-hopr--gray {
+    background: #CCC;
+    color: #000050;
+  }
   @media (max-width: 330px) {
     &.btn-hopr--v2 {
       font-size: 14px;
@@ -45,7 +49,7 @@ export default function Button(props) {
     return (
         <SButton
             variant={props.hopr ? 'contained' : props.variant }
-            className={`${props.className} ${props.hopr && 'btn-hopr--v2'} ${props.imageOnly && 'btn-hopr--image-only'} ${props.size70 && 'btn-hopr--size70'}`}
+            className={`${props.className} ${props.hopr && 'btn-hopr--v2'} ${props.gray && 'btn-hopr--gray'}  ${props.imageOnly && 'btn-hopr--image-only'} ${props.size70 && 'btn-hopr--size70'}`}
             {...rest}
         >
             {props.children}

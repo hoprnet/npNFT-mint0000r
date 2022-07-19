@@ -2,25 +2,20 @@ import React from "react";
 import styled from "@emotion/styled";
 import Section from '../future-hopr-lib-components/Section/index.jsx'
 import Typography from '../future-hopr-lib-components/Typography/index.jsx'
-import Brick from '../future-hopr-lib-components/Brick/index.jsx'
 import Button from '../future-hopr-lib-components/Button/index.jsx'
 import TwitterButton from '../future-hopr-lib-components/Button/twitter.jsx'
 
 
 //Components
 const SSection = styled(Section)`
-  padding-bottom: 120px;
-  padding-top: 120px;
-`
-const Subtext = styled(Typography)`
-  max-width: 960px;
+  padding-bottom: 70px;
 `
 
 const ImageContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 64px;
 `
 
 const ImagePlaceholder = styled.img`
@@ -35,12 +30,11 @@ const Image = styled.img`
   position: absolute;
 `
 
-const TwitterButtonImage = styled.img`
-    width: 32px;
-    margin-right: 8px;
-`
 
-function Section3_Content() {
+
+function Section3_Content(props) {
+    const { active, mintNpNFT, connectWallet } = props;
+
     return (
         <SSection
             id={'Section3'}
@@ -63,6 +57,28 @@ function Section3_Content() {
                 <ImagePlaceholder src="./images/ethcc-2022-nft-empty.jpg" alt="Non Private NFT by HOPR - EthCC 5 2022 Paris Placeholder" />
                 <Image src="https://non-private-nft.hoprnet.org/ethcc-2022-nft-demo.jpg" alt="Non Private NFT by HOPR - EthCC 5 2022 Paris" />
             </ImageContainer>
+
+            { active ? (
+                <>
+                    <Button
+                        hopr
+                        gray
+                        onClick={mintNpNFT}
+                    >
+                        Mint Non-Private NFT
+                    </Button>
+                </>
+            ) : (
+                <>
+                    <Button
+                        hopr
+                        gray
+                        onClick={connectWallet}
+                    >
+                        Connect Wallet
+                    </Button>
+                </>
+            ) }
 
 {/*            <TwitterButton*/}
 {/*                text={`*/}

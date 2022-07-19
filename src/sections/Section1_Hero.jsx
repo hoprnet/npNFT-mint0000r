@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 
 import Section from '../future-hopr-lib-components/Section/index.jsx'
 import Typography from '../future-hopr-lib-components/Typography/index.jsx'
-import Button from '../future-hopr-lib-components/Button/index.jsx'
 
 import { ReactComponent as HoprBall } from '../assets/hopr-ball.svg';
 import mintAnimation from '../assets/mint-animation.json'
