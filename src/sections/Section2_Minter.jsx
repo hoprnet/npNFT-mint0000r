@@ -17,6 +17,11 @@ function getLibrary(provider, connector) {
     return new providers.Web3Provider(provider)
 }
 
+const SSection = styled(Section)`
+  padding-top: 0;
+`
+
+
 const Subtext = styled(Typography)`
   max-width: 960px;
 `
@@ -60,17 +65,17 @@ function Section2_Minter() {
 
   	const mintNpNFT = async () => {
   		let minterABI = [
-				{
-				  "inputs": [],
-				  "name": "mintNft",
-				  "outputs": [],
-				  "stateMutability": "nonpayable",
-				  "type": "function"
-				}
-			]
-			let minterAddress="0xFA1B9250465939452D34fad1C8a15148DD136904"
-			console.log(library)
-			let web3 = new Web3(library.provider)
+            {
+              "inputs": [],
+              "name": "mintNft",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+        ]
+        let minterAddress="0xFA1B9250465939452D34fad1C8a15148DD136904"
+        console.log(library)
+        let web3 = new Web3(library.provider)
   		let minterInstance = new web3.eth.Contract(minterABI, minterAddress)
   		console.log(minterInstance)
   		minterInstance.methods.mintNft().send( { from: account } )
@@ -78,17 +83,13 @@ function Section2_Minter() {
   	}
 
     return (
-        <Section
-            id={'Section2'}
-            yellow
-            center
-        >
-            <MinterContainer>
+        <>
+            <SSection
+                id={'Section2A'}
+                center
+            >
                 { active ? (
                     <>
-                        <Subtext center>
-                            Connected address <Address> { account } </Address>
-                        </Subtext>
                         <Button
                             hopr
                             onClick={mintNpNFT}
@@ -98,15 +99,6 @@ function Section2_Minter() {
                     </>
                 ) : (
                     <>
-                        <Subtext center>
-                            No wallet connected.
-                        </Subtext>
-                        <Subtext center>
-                            We recommend that you open this page in your <a href="https://coinbase-wallet.onelink.me/q5Sx/fdb9b250" target="_blank">Coinbase Mobile Wallet</a> to mint your NFT.
-                        </Subtext>
-                        <Subtext center>
-                            Why Coinbase Mobile Wallet? Because it is a good example of a wallet that supports NFTs and leaks your metadata for you to see in this educational example NFT.
-                        </Subtext>
                         <Button
                             hopr
                             onClick={connectWallet}
@@ -115,8 +107,35 @@ function Section2_Minter() {
                         </Button>
                     </>
                 ) }
-            </MinterContainer>
-        </Section>
+            </SSection>
+            <Section
+                id={'Section2B'}
+                yellow
+                center
+            >
+                <MinterContainer>
+                    { active ? (
+                        <>
+                            <Subtext center>
+                                Connected address <Address> { account } </Address>
+                            </Subtext>
+                        </>
+                    ) : (
+                        <>
+                            <Subtext center>
+                                No wallet connected.
+                            </Subtext>
+                            <Subtext center>
+                                We recommend that you open this page in your <a href="https://coinbase-wallet.onelink.me/q5Sx/fdb9b250" target="_blank">Coinbase Mobile Wallet</a> to mint your NFT.
+                            </Subtext>
+                            <Subtext center>
+                                Why Coinbase Mobile Wallet? Because it is a good example of a wallet that supports NFTs and leaks your metadata for you to see in this educational example NFT.
+                            </Subtext>
+                        </>
+                    ) }
+                </MinterContainer>
+            </Section>
+        </>
     );
 }
 
