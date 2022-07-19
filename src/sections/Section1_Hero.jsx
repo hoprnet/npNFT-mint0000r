@@ -8,6 +8,7 @@ import Button from '../future-hopr-lib-components/Button/index.jsx'
 import { ReactComponent as HoprBall } from '../assets/hopr-ball.svg';
 import derpAnimation from '../assets/derp-animation.json'
 import lottie from "lottie-web";
+import TwitterButton from "../future-hopr-lib-components/Button/twitter";
 
 const SSection = styled(Section)`
   padding-bottom: 80px;
@@ -92,6 +93,13 @@ function Section1(props) {
             {/*>*/}
             {/*    SETUP*/}
             {/*</Button>*/}
+
+            <TwitterButton
+                text={`
+https://mint.hoprnet.org/
+@hoprnet #npNFT`
+                }
+            />
 
 
         </SSection>

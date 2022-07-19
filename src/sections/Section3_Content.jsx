@@ -4,6 +4,8 @@ import Section from '../future-hopr-lib-components/Section/index.jsx'
 import Typography from '../future-hopr-lib-components/Typography/index.jsx'
 import Brick from '../future-hopr-lib-components/Brick/index.jsx'
 import Button from '../future-hopr-lib-components/Button/index.jsx'
+import TwitterButton from '../future-hopr-lib-components/Button/twitter.jsx'
+
 
 //Components
 const SSection = styled(Section)`
@@ -14,30 +16,48 @@ const Subtext = styled(Typography)`
   max-width: 960px;
 `
 
+const ImageContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 24px;
+`
+
+const Image = styled.img`
+  width: 100%;
+  max-width: 600px;
+  
+`
+
+const TwitterButtonImage = styled.img`
+    width: 32px;
+    margin-right: 8px;
+`
+
 function Section3_Content() {
     return (
         <SSection
             id={'Section3'}
-            yellow
+            darkGradient
             center
         >
-            <Typography type="h2">
-                I THOUGHT WEB3 WAS PRIVATE?<br/>
-                NOT A CHANCE.
+            <Typography type="h2" className='typography--white typography--center'>
+                NFT might be watching you!
             </Typography>
-            <Subtext center>
-                Crypto services are flashier and more user-friendly than ever, but few understand what goes on under the hood. The DERP tool from HOPR duplicates the functionality of a typical RPC provider, but it makes explicit the sheer amount of identifying data these services expose. As you’ll see, this happens as soon as you connect your wallet, and all without you needing to make a transaction.
-            </Subtext>
-            <Subtext center className='mb80'>
-                Add the DERP RPC endpoint to your crypto wallet to see exactly what information is being leaked about you every time you connect to a crypto service.
-            </Subtext>
-            <Brick
-                title="HOW IS THIS DONE?"
-                text="As soon as you start a wallet, it gets in touch with the RPC provider to find out basic information such as your token balances and network (Ethereum, Polygon, Gnosis Chain, etc.)"
-                image="/images/hopr_derp.gif"
-                button="LEARN MORE"
-                buttonHref="https://medium.com/hoprnet/intro-to-d-e-r-p-9e09a5e54904"
-            />
+            <Typography  className='typography--white typography--center'>
+                The HOPR Non-Private NFT! This NFT tool will show you how easy it is to expose your IP address and maybe even your whole identity with many of today`s crypto services.
+            </Typography>
+            <ImageContainer>
+                <Image src="https://non-private-nft.hoprnet.org/ethcc-2022-nft-demo.jpg" alt="Non Private NFT by HOPR - EthCC 5 2022 Paris" />
+            </ImageContainer>
+
+{/*            <TwitterButton*/}
+{/*                text={`*/}
+{/*https://mint.hoprnet.org/*/}
+{/*@hoprnet #npNFT`*/}
+{/*            }*/}
+{/*            />*/}
+
         </SSection>
     );
 }
