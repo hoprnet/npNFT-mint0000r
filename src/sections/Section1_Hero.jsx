@@ -1,17 +1,17 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useRef} from "react";
 import styled from "@emotion/styled";
 
 import Section from '../future-hopr-lib-components/Section/index.jsx'
 import Typography from '../future-hopr-lib-components/Typography/index.jsx'
-import Button from '../future-hopr-lib-components/Button/index.jsx'
 
 import { ReactComponent as HoprBall } from '../assets/hopr-ball.svg';
-import derpAnimation from '../assets/derp-animation.json'
+import mintAnimation from '../assets/mint-animation.json'
 import lottie from "lottie-web";
+import TwitterButton from "../future-hopr-lib-components/Button/twitter";
 
 const SSection = styled(Section)`
-  padding-bottom: 80px;
   padding-top: 0;
+  padding-bottom: 0;
 `
 
 const ImageContainer = styled.div`
@@ -27,15 +27,12 @@ const SHoprBall = styled(HoprBall)`
   width: 100%;
 `
 
-// const Animation = styled.div`
-//   max-width: 400px;
-//   max-height: 400px;
-//   width: 50%;
-//   position: absolute;
-//   bottom: 0;
-//   right: 0;
-//   overflow: hidden;
-// `
+const Animation = styled.div`
+  width: 34vw;
+  max-width: 300px;
+  position: absolute;
+  top: 10px;
+`
 
 const Image = styled.img`
   max-width: 400px;
@@ -49,19 +46,17 @@ const Subtext = styled(Typography)`
 `
 
 function Section1(props) {
+    const animationLoaded = useRef(false);
 
-    // let animationLoaded = false;
-    // useEffect(() => {
-    //     // check to prevent double animation load on page remount
-    //     if (!animationLoaded) {
-    //         lottie.loadAnimation({
-    //             container: document.querySelector(`#derp-animation`),
-    //             animationData: derpAnimation,
-    //         });
-    //     }
-    //     //eslint-disable-next-line react-hooks/exhaustive-deps
-    //     animationLoaded = true;
-    // }, []);
+    useEffect(() => {
+        if (!animationLoaded.current) {
+            lottie.loadAnimation({
+                container: document.querySelector(`#mint-animation`),
+                animationData: mintAnimation,
+            });
+        }
+        animationLoaded.current = true;
+    }, []);
 
     return (
         <SSection
@@ -71,11 +66,11 @@ function Section1(props) {
         >
             <ImageContainer >
                 <SHoprBall/>
-                <Image
-                    alt="Hopr Minter"
-                    src={'/images/HOPR_Mint.svg'}
-                />
-                {/*<Animation id='derp-animation' />*/}
+                {/*<Image*/}
+                {/*    alt="Hopr Minter"*/}
+                {/*    src={'/images/HOPR_Mint.svg'}*/}
+                {/*/>*/}
+                <Animation id='mint-animation' />
             </ImageContainer>
 
             <Typography type="h2" center>
@@ -92,6 +87,13 @@ function Section1(props) {
             {/*>*/}
             {/*    SETUP*/}
             {/*</Button>*/}
+
+{/*            <TwitterButton*/}
+{/*                text={`*/}
+{/*https://mint.hoprnet.org/*/}
+{/*@hoprnet #npNFT`*/}
+{/*                }*/}
+{/*            />*/}
 
 
         </SSection>

@@ -2,42 +2,91 @@ import React from "react";
 import styled from "@emotion/styled";
 import Section from '../future-hopr-lib-components/Section/index.jsx'
 import Typography from '../future-hopr-lib-components/Typography/index.jsx'
-import Brick from '../future-hopr-lib-components/Brick/index.jsx'
 import Button from '../future-hopr-lib-components/Button/index.jsx'
+import TwitterButton from '../future-hopr-lib-components/Button/twitter.jsx'
+
 
 //Components
 const SSection = styled(Section)`
-  padding-bottom: 120px;
-  padding-top: 120px;
-`
-const Subtext = styled(Typography)`
-  max-width: 960px;
+  padding-bottom: 70px;
 `
 
-function Section3_Content() {
+const ImageContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 64px;
+`
+
+const ImagePlaceholder = styled.img`
+  width: 100%;
+  max-width: 600px;
+`
+
+const Image = styled.img`
+  width: calc( 100% - 32px );
+  max-width: 600px;
+  z-index: 1;
+  position: absolute;
+`
+
+
+
+function Section3_Content(props) {
+    const { active, mintNpNFT, connectWallet } = props;
+
     return (
         <SSection
             id={'Section3'}
-            yellow
+            darkGradient
             center
         >
-            <Typography type="h2">
-                I THOUGHT WEB3 WAS PRIVATE?<br/>
-                NOT A CHANCE.
+            <Typography type="h2" className='typography--white typography--center'>
+                NON-PRIVATE NFT PREVIEW!
             </Typography>
-            <Subtext center>
-                Crypto services are flashier and more user-friendly than ever, but few understand what goes on under the hood. The DERP tool from HOPR duplicates the functionality of a typical RPC provider, but it makes explicit the sheer amount of identifying data these services expose. As you’ll see, this happens as soon as you connect your wallet, and all without you needing to make a transaction.
-            </Subtext>
-            <Subtext center className='mb80'>
-                Add the DERP RPC endpoint to your crypto wallet to see exactly what information is being leaked about you every time you connect to a crypto service.
-            </Subtext>
-            <Brick
-                title="HOW IS THIS DONE?"
-                text="As soon as you start a wallet, it gets in touch with the RPC provider to find out basic information such as your token balances and network (Ethereum, Polygon, Gnosis Chain, etc.)"
-                image="/images/hopr_derp.gif"
-                button="LEARN MORE"
-                buttonHref="https://medium.com/hoprnet/intro-to-d-e-r-p-9e09a5e54904"
-            />
+            <Typography  className='typography--white typography--center'>
+                The picture below is an example of a non-private NFT picture. Just like other elements on this website it is loaded via a centralized webserver and that webserver learns more about you than most of us think.
+            </Typography>
+            <Typography  className='typography--white typography--center'>
+                Disregarding if the picture is loaded in your NFT wallet or on this website, the picture will show you what metadata the webserver could find about you. This includes the location of your internet service provider and device settings that data harvesting institutions can use to build a coherent picture of your digital and metaverse life.
+            </Typography>
+            <Typography  className='typography--white typography--center'>
+                Now mint your own non-private NFT and see what your NFT wallet discloses about you.
+            </Typography>
+            <ImageContainer>
+                <ImagePlaceholder src="./images/ethcc-2022-nft-empty.jpg" alt="Non Private NFT by HOPR - EthCC 5 2022 Paris Placeholder" />
+                <Image src="https://non-private-nft.hoprnet.org/ethcc-2022-nft-demo.jpg" alt="Non Private NFT by HOPR - EthCC 5 2022 Paris" />
+            </ImageContainer>
+
+            { active ? (
+                <>
+                    <Button
+                        hopr
+                        gray
+                        onClick={mintNpNFT}
+                    >
+                        Mint Non-Private NFT
+                    </Button>
+                </>
+            ) : (
+                <>
+                    <Button
+                        hopr
+                        gray
+                        onClick={connectWallet}
+                    >
+                        Connect Wallet
+                    </Button>
+                </>
+            ) }
+
+{/*            <TwitterButton*/}
+{/*                text={`*/}
+{/*https://mint.hoprnet.org/*/}
+{/*@hoprnet #npNFT`*/}
+{/*            }*/}
+{/*            />*/}
+
         </SSection>
     );
 }

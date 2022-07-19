@@ -19,6 +19,9 @@ const H2 = styled.h2`
   &.typography--fullWidth{
     width: 100%;
   }
+  &.typography--white{
+    color: white;
+  }
 
   @media (max-width: 768px) {
     font-size: 36px;
@@ -87,6 +90,14 @@ const PlainText = styled.div`
 
   &.mb80 {
     margin-bottom: 80px;
+  }
+
+  &.mb0 {
+    margin-bottom: 0;
+  }
+
+  &.typography--white{
+    color: white;
   }
 `
 
