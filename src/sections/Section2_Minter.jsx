@@ -55,14 +55,20 @@ export default function Section2_Minter(props) {
                 <MinterContainer>
                     { active ? (
                         <>
-                            <Typography center className='mb0'>
+                            <Typography center>
                                 Connected address <Address> { account } </Address>
+                            </Typography>
+                            <Typography center className='mb0'>
+                                Remember to have <strong>Ethereum Mainnet</strong> selected on your wallet.
                             </Typography>
                         </>
                     ) : (
                         <>
                             <Typography center>
                                 No wallet connected.
+                            </Typography>
+                            <Typography center>
+                                You can mint only on <strong>Ethereum Mainnet</strong>.
                             </Typography>
                             <Typography center>
                                 We recommend that you open this page in your <a href="https://coinbase-wallet.onelink.me/q5Sx/fdb9b250" target="_blank">Coinbase Mobile Wallet</a> to mint your NFT.
