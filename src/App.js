@@ -67,9 +67,9 @@ export function App() {
 
     return (
         <Layout>
-            <Banner
-                text='EthCC contest will end on Thursday, July 21st, 11:59 pm CEST'
-            />
+{/*              <Banner
+                 text='EthCC contest will end on Thursday, July 21st, 11:59 pm CEST'
+             /> */}
             <Section1_Hero/>
             <Section2_Minter
                 active={active}
