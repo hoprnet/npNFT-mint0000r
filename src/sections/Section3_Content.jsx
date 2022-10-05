@@ -54,7 +54,7 @@ function Section3_Content(props) {
                 Now mint your own non-private NFT and see what your NFT wallet discloses about you.
             </Typography>
             <ImageContainer>
-                <ImagePlaceholder src="./images/ethcc-2022-nft-empty.jpg" alt="Non Private NFT by HOPR - EthCC 5 2022 Paris Placeholder" />
+                <ImagePlaceholder src="./images/demo-nft-empty.jpg" alt="Non Private NFT by HOPR - demonstration placeholder" />
                 <Image src="https://non-private-nft.hoprnet.org/demo-nft.jpg" alt="Non Private NFT by HOPR - demonstration" />
             </ImageContainer>
 
