@@ -1,6 +1,7 @@
 *.swp
 cache/
 artifacts/
+.idea/
 
 # Logs
 logs

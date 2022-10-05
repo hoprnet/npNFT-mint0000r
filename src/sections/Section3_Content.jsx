@@ -55,7 +55,7 @@ function Section3_Content(props) {
             </Typography>
             <ImageContainer>
                 <ImagePlaceholder src="./images/ethcc-2022-nft-empty.jpg" alt="Non Private NFT by HOPR - EthCC 5 2022 Paris Placeholder" />
-                <Image src="https://non-private-nft.hoprnet.org/ethcc-2022-nft-demo.jpg" alt="Non Private NFT by HOPR - EthCC 5 2022 Paris" />
+                <Image src="https://non-private-nft.hoprnet.org/demo-nft.jpg" alt="Non Private NFT by HOPR - demonstration" />
             </ImageContainer>
 
             { active ? (
