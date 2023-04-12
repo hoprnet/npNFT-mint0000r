@@ -8,6 +8,8 @@ import Section1_Hero from './sections/Section1_Hero'
 import Section2_Minter from './sections/Section2_Minter'
 import Section3_Content from './sections/Section3_Content'
 import EncourageSection from "./future-hopr-lib-components/EncourageSection";
+import Section_RPCh from "./sections/Section_RPCh";
+
 
 // Web3 Imports
 import Web3 from 'web3';
@@ -71,6 +73,7 @@ export function App() {
                  text='EthCC contest will end on Thursday, July 21st, 11:59 pm CEST'
              /> */}
             <Section1_Hero/>
+            <Section_RPCh/>
             <Section2_Minter
                 active={active}
                 account={account}
