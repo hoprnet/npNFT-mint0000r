@@ -11,6 +11,9 @@ const SSection = styled.section`
   &.section--dark-gradient{
     background: linear-gradient(180deg, #000050 0.5%, #0000B4 100%);
   }
+  &.section--light-blue{
+    background: #7ee5ff;
+  }
   &.section--grey {
     background: #EEEEEE;
   }
@@ -34,8 +37,17 @@ const Content = styled.div`
 function Section(props) {
     return (
         <SSection
-            className={`Section ${props.className} ${props.gradient ? ' section--gradient' : ''}${props.yellow ? ' section--yellow' : ''}${props.darkGradient ? ' section--dark-gradient' : ''}${props.grey ? ' section--grey' : ''}`}
-            id={props.id}
+          className={`Section ${props.className} 
+            ${props.gradient ? ' section--gradient' : ''}
+            ${props.yellow ? ' section--yellow' : ''}
+            ${props.darkGradient ? ' section--dark-gradient' : ''}
+            ${props.lightBlueGradient ? ' section--light-blue-gradient' : ''}
+            ${props.lightBlue ? ' section--light-blue' : ''}
+            ${props.grey ? ' section--grey' : ''}
+            ${props.fullHeightMin ? ' full-height-min' : ''}
+            ${props.fullHeight ? ' full-height' : ''}`
+          }
+        id={props.id}
         >
             <Content className={`Content ${props.center ? ' content--center' : ''}`}>
                 {props.children}

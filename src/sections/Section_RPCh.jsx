@@ -1,24 +1,45 @@
 import React from "react";
 import styled from "@emotion/styled";
+
 import Section from '../future-hopr-lib-components/Section/index.jsx'
 import Typography from '../future-hopr-lib-components/Typography/index.jsx'
-import Button from '../future-hopr-lib-components/Button/index.jsx'
+import Button from '../future-hopr-lib-components/Button'
 
+import PoweredByHopr from '../future-hopr-lib-components/PoweredByHOPR'
 
-export default function Section_RPCh(props) {
+const SSection = styled(Section)`
+  padding-bottom: 40px;
+  padding-top: 40px;
+  align-items: flex-start;
+`
 
+function Section4() {
     return (
-        <Section
-            id={'Section2A'}
+        <SSection
+            lightBlue
             center
         >
-            
-            <Typography center>
-                Despite millions of users worldwide, today’s wallets often leak user IP addresses and all sorts of metadata. 
-                {' '}<a href="https://rpch.net/" target="_blank" >Check out the Only Private Blockchain Gateway RPCh by HOPR.</a>
+            <Typography
+                type="h6"
+                className="mb32"
+            >
+                Want to know how RPCh – the first private Ethereum RPC provider – fixes all this?
             </Typography>
-
-        </Section>
+            <Button
+                hopr
+                href='https://hoprnet.org/rpch'
+                target="_blank"
+            >
+                TELL ME MORE
+            </Button>
+            <PoweredByHopr
+                style={{
+                    marginTop: '20px',
+                    marginBottom: '-16px',
+                }}
+            />
+        </SSection>
     );
 }
 
+export default Section4;

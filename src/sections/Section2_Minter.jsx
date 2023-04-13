@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Section from '../future-hopr-lib-components/Section/index.jsx'
+import Section_RPCh from "./Section_RPCh";
 import Typography from '../future-hopr-lib-components/Typography/index.jsx'
 import Button from '../future-hopr-lib-components/Button/index.jsx'
 
@@ -47,6 +48,7 @@ export default function Section2_Minter(props) {
                     </>
                 ) }
             </SSection>
+            <Section_RPCh/>
             <Section
                 id={'Section2B'}
                 yellow
