@@ -27,7 +27,7 @@ function Section4() {
             </Typography>
             <Button
                 hopr
-                href='https://hoprnet.org/rpch'
+                href='https://rpch.net/'
                 target="_blank"
             >
                 TELL ME MORE
